@@ -7,15 +7,15 @@ import pyautogui
 import pytesseract
 
 #code activation
-keyboard.wait('Scroll_Lock')
+keyboard.wait('enter')
 
 #taking a screenshot of the text and assigning it to a variable
-screenshot = pyautogui.screenshot(region=(562, 509, 800, 165))
-screenshot.save(r'C:\Users\lucas\OneDrive\Documents\iveNeverCheated\Game bots\typeracerbot\screenshots\image.png')
-image = Image.open(r'C:\Users\lucas\OneDrive\Documents\iveNeverCheated\Game bots\typeracerbot\screenshots\image.png')
+screenshot = pyautogui.screenshot(region=(508, 605, 883, 200))
+screenshot.save('image.png')
+image = Image.open('image.png')
 
 #reading the text of the screenshot
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 text = pytesseract.image_to_string(image)
 
 #cleaning up the text
@@ -25,5 +25,5 @@ print(text)
 
 #typing out the text per character
 for char in text:
-        #sleep(0.04)
+        sleep(0.02)
         keyboard.write(char)
